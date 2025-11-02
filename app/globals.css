@@ -34,9 +34,78 @@
   .card {
     @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300;
   }
+
+  /* Blog Article Cards with enhanced design */
+  .blog-card {
+    @apply bg-gray-100/10 backdrop-blur-sm border border-gray-200/20 rounded-xl p-6 transition-all duration-300 ease-in-out;
+  }
+
+  .blog-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Grid layout for blog posts */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  /* Featured post layout */
+  .featured-post {
+    @apply col-span-full mb-12;
+  }
+
+  /* Tag pills/chips */
+  .tag-pill {
+    @apply inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .tag-pill:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    transform: scale(1.05);
+  }
+
+  /* Featured image overlay */
+  .featured-image-container {
+    @apply relative overflow-hidden rounded-lg;
+  }
+
+  .featured-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+  }
+
+  .featured-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    z-index: 2;
+    color: white;
+  }
   
   .section-padding {
     @apply py-20 lg:py-32;
+  }
+
+  /* Enhanced section spacing */
+  .section-large-spacing {
+    @apply py-24 lg:py-40;
   }
 
   /* Line clamp utility for blog excerpts */

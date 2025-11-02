@@ -144,7 +144,7 @@ export default function BlogList({ posts, searchQuery = "", selectedTag = "" }: 
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="bg-white/10 px-2 py-1 rounded-full text-xs text-accent">
+                    <span key={tag} className="tag-pill">
                       {tag}
                     </span>
                   ))}
@@ -190,9 +190,9 @@ export default function BlogList({ posts, searchQuery = "", selectedTag = "" }: 
           <h2 className="text-3xl font-bold mb-8">
             {featuredPosts.length > 0 ? "Más artículos" : "Últimos artículos"}
           </h2>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="blog-grid">
             {regularPosts.map((post) => (
-              <article key={post.id} className="card group hover:scale-105 transition-transform">
+              <article key={post.id} className="blog-card group hover:scale-105 transition-transform">
                 {post.image && (
                   <div className="relative h-40 mb-4 rounded-xl overflow-hidden">
                     <Image
@@ -206,7 +206,7 @@ export default function BlogList({ posts, searchQuery = "", selectedTag = "" }: 
 
                 <div className="flex flex-wrap gap-2 mb-3">
                   {post.tags.slice(0, 2).map((tag) => (
-                    <span key={tag} className="bg-white/10 px-2 py-1 rounded-full text-xs text-accent">
+                    <span key={tag} className="tag-pill">
                       {tag}
                     </span>
                   ))}
