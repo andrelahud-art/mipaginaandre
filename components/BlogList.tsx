@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { AnimatedElement } from "./AnimatedElement";
+import { ArrowRight } from "lucide-react";
 
 interface BlogPost {
   id: string;
@@ -57,156 +57,147 @@ export default function BlogList({ posts, searchQuery = "", selectedTag = "" }: 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("es-ES", {
       year: "numeric",
-      month: "long",
+      month: "short",
       day: "numeric"
     });
   };
 
-  const featuredPosts = filteredPosts.filter(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured);
-
   const containerVariants = {
-    hidden: {},
+    hidden: { opacity: 0 },
     visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
     },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   return (
     <div className="space-y-12">
-      {/* Search and Filters */}
-      <AnimatedElement className="card">
-        <h3 className="text-xl font-bold mb-6 text-dark">Buscar contenido</h3>
-        
-        <div className="mb-6">
-          <input
-            type="text"
-            placeholder="Buscar por título, contenido o tags..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="input-form"
-          />
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setCurrentFilter("")}
-            className={`tag-filter ${
-              currentFilter === "" 
-                ? "active" 
-                : ""
-            }`}
-          >
-            Todos
-          </button>
-          {allTags.map((tag) => (
+      {/* Filters Bar */}
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-600 mb-4">Filtrar por categoría</h3>
+          <div className="flex flex-wrap gap-3">
             <button
-              key={tag}
-              onClick={() => setCurrentFilter(tag)}
-              className={`tag-filter ${
-                currentFilter === tag 
-                  ? "active" 
-                  : ""
+              onClick={() => setCurrentFilter("")}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                currentFilter === ""
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
-              {tag}
+              Todos los artículos
             </button>
-          ))}
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setCurrentFilter(tag)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  currentFilter === tag
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
-      </AnimatedElement>
 
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section>
-          <h2 className="text-3xl font-bold mb-8 text-dark">Destacados</h2>
-          <motion.div 
-            className="grid md:grid-cols-2 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {featuredPosts.map((post, index) => (
-              <AnimatedElement key={post.id} delay={index * 0.1}>
-                <article className="card-blog group">
-                  <Link href={`/blog/${post.slug}`} className="block mb-4 overflow-hidden rounded-xl">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      width={800}
-                      height={450}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </Link>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {post.tags.map(tag => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-dark group-hover:text-primary transition-colors">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                  <div className="text-xs text-gray-500">
-                    <span>{post.readTime}</span>
-                    <span className="mx-2">•</span>
-                    <span>{formatDate(post.publishedAt)}</span>
-                  </div>
-                </article>
-              </AnimatedElement>
-            ))}
-          </motion.div>
-        </section>
-      )}
+        {/* Search */}
+        <div>
+          <input
+            type="text"
+            placeholder="Buscar por título o palabra clave..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+          />
+        </div>
+      </div>
 
-      {/* Regular Posts */}
-      {regularPosts.length > 0 && (
-        <section>
-          <h2 className="text-3xl font-bold mb-8 text-dark">Más artículos</h2>
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {regularPosts.map((post, index) => (
-              <AnimatedElement key={post.id} delay={index * 0.1}>
-                <article className="card-blog group">
-                  <Link href={`/blog/${post.slug}`} className="block mb-4 overflow-hidden rounded-xl">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      width={800}
-                      height={450}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </Link>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {post.tags.map(tag => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-dark group-hover:text-primary transition-colors">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                  <div className="text-xs text-gray-500">
-                    <span>{post.readTime}</span>
-                    <span className="mx-2">•</span>
-                    <span>{formatDate(post.publishedAt)}</span>
-                  </div>
-                </article>
-              </AnimatedElement>
-            ))}
-          </motion.div>
-        </section>
-      )}
-
+      {/* No Results */}
       {filteredPosts.length === 0 && (
-        <AnimatedElement className="text-center py-16">
-          <p className="text-xl text-gray-500">No se encontraron artículos con esos criterios.</p>
-        </AnimatedElement>
+        <div className="text-center py-12">
+          <p className="text-lg text-gray-600">No encontramos artículos con esos filtros.</p>
+          <button
+            onClick={() => {
+              setCurrentFilter("");
+              setSearchTerm("");
+            }}
+            className="mt-4 text-blue-600 hover:text-blue-700 font-medium"
+          >
+            Limpiar filtros
+          </button>
+        </div>
+      )}
+
+      {/* Blog Grid */}
+      {filteredPosts.length > 0 && (
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {filteredPosts.map((post) => (
+            <motion.article
+              key={post.id}
+              variants={itemVariants}
+              className="group bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+            >
+              {/* Image Container */}
+              <Link href={`/blog/${post.slug}`} className="block overflow-hidden h-48 bg-gray-100">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={600}
+                  height={300}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col h-full">
+                {/* Category Tag */}
+                <div className="mb-3">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 rounded-full">
+                    {post.tags[0] || "Blog"}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                </h3>
+
+                {/* Excerpt */}
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                  {post.excerpt}
+                </p>
+
+                {/* Meta Info */}
+                <div className="flex items-center justify-between text-xs text-gray-500 mb-4 pt-4 border-t border-gray-100">
+                  <span>{formatDate(post.publishedAt)}</span>
+                  <span>{post.readTime}</span>
+                </div>
+
+                {/* Read More Link */}
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 group/link transition-all"
+                >
+                  Leer más
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       )}
     </div>
   );
