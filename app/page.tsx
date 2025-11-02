@@ -3,6 +3,7 @@ import LogoStrip from "@/components/LogoStrip";
 import CTA from "@/components/CTA";
 import { AnimatedElement } from "@/components/AnimatedElement";
 import MiHistoria from "@/components/MiHistoria";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function HomePage() {
   return (
@@ -12,19 +13,17 @@ export default function HomePage() {
       
       <header className="relative z-10 text-center py-32 section-padding">
         <div className="container-custom">
-          {/* Usar AnimatedElement para animar la entrada */}
-          <AnimatedElement>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-dark">
-              Estrategia • Inteligencia Artificial • Creación de Valor
-            </h1>
-          </AnimatedElement>
-          <AnimatedElement delay={0.1}>
+          <AnimatedText 
+            text="Estrategia • Inteligencia Artificial • Creación de Valor"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-dark"
+          />
+          <AnimatedElement delay={0.8}>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
               Convierto objetivos agresivos en resultados medibles. Menos discurso, más ejecución.
             </p>
           </AnimatedElement>
           
-          <AnimatedElement delay={0.2} className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <AnimatedElement delay={1} className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/contacto" className="btn-primary">
               Agendar un diagnóstico
             </Link>
