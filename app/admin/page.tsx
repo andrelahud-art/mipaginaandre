@@ -227,4 +227,4 @@ export default function AdminDashboard() {
       </div>
     </div>
   );
-}
+}// Vercel build trigger Sun Nov  2 00:03:36 CST 2025
