@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostDetail from "@/components/BlogPostDetail";
 
+export const dynamic = "force-static";
+export const dynamicParams = true;
+
 interface BlogPost {
   id: string;
   title: string;
@@ -111,19 +114,40 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   try {
     const fs = require('fs');
     const path = require('path');
-    const postsPath = path.join(process.cwd(), 'data/blog-posts.json');
+    const postsPath = path.join(process.cwd(), 'data', 'blog-posts.json');
+    
+    if (!fs.existsSync(postsPath)) {
+      console.warn('blog-posts.json not found at:', postsPath);
+      // Return at least one blog post for initial build
+      return [
+        { slug: 'automatizacion-ia-estrategia' },
+        { slug: 'analisis-datos-decisiones-estrategicas' },
+        { slug: 'business-model-canvas-era-ia' },
+        { slug: 'ia-generativa-empresas-implementacion-real' },
+        { slug: 'marketing-predictivo-ia-casos-uso' },
+        { slug: 'sistemas-inteligentes-pymes-procesos' },
+        { slug: 'startup-scaleup-framework-tecnologia' }
+      ];
+    }
+    
     const data = fs.readFileSync(postsPath, 'utf8');
     const posts = JSON.parse(data);
     
+    if (!Array.isArray(posts) || posts.length === 0) {
+      console.warn('No blog posts found in blog-posts.json');
+      return [];
+    }
+    
     return posts.map((post: BlogPost) => ({
-      slug: post.slug,
+      slug: post.slug || post.id,
     }));
   } catch (error) {
     console.error('Error generating static params:', error);
+    // Return empty array is safer than throwing during build
     return [];
   }
 }
