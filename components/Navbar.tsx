@@ -13,7 +13,6 @@ export default function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/sobre-mi", label: "Sobre Mí" },
     { href: "/servicios", label: "Servicios" },
-    { href: "/casos", label: "Casos" },
     { href: "/blog", label: "Blog" },
     { href: "/contacto", label: "Contacto" },
   ];

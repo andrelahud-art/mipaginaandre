@@ -1,13 +1,14 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, MessageSquare, User, Send, Loader, CheckCircle, AlertTriangle } from 'lucide-react';
+import Link from "next/link";
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -28,14 +29,15 @@ export default function Contacto() {
       });
 
       if (!response.ok) {
-        throw new Error("Error al enviar el formulario");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Error al enviar el formulario");
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", whatsapp: "", message: "" });
-    } catch (error) {
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error: any) {
       setStatus("error");
-      setErrorMessage("Hubo un error al enviar el mensaje. Intenta de nuevo.");
+      setErrorMessage(error.message || "Hubo un error al enviar el mensaje. Intenta de nuevo.");
     }
   };
 
@@ -46,154 +48,203 @@ export default function Contacto() {
     });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
-    <section className="section-padding pt-32">
-      <div className="container-custom max-w-6xl">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">
-          Contacto
-        </h1>
-        <p className="text-xl text-accent text-center max-w-3xl mx-auto mb-16">
-          Elige la forma que prefieras para empezar la conversación.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {/* Email Card */}
-          <div className="card text-center">
-            <div className="text-5xl mb-4">📧</div>
-            <h3 className="text-xl font-bold mb-4">Email</h3>
-            <a 
-              href="mailto:andrelahud@gmail.com"
-              className="text-accent hover:text-white transition-colors break-all"
-            >
-              andrelahud@gmail.com
-            </a>
-          </div>
-
-          {/* WhatsApp Card */}
-          <div className="card text-center">
-            <div className="text-5xl mb-4">💬</div>
-            <h3 className="text-xl font-bold mb-4">WhatsApp</h3>
-            <a 
-              href="https://wa.me/524777068594"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-block"
-            >
-              +52 477-706-8594
-            </a>
-          </div>
-
-          {/* Calendly Card */}
-          <div className="card text-center">
-            <div className="text-5xl mb-4">📅</div>
-            <h3 className="text-xl font-bold mb-4">Agenda</h3>
-            <a 
-              href="https://calendly.com/andre-lahud"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-block"
-            >
-              Reservar llamada
-            </a>
-            <p className="text-sm text-accent mt-4">
-              (Reemplaza el link de Calendly con tu URL real)
-            </p>
-          </div>
-        </div>
-
-        {/* Formulario de Contacto */}
-        <div className="card max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            O envíame un mensaje
-          </h2>
-
-          {status === "success" && (
-            <div className="bg-green-500/20 border border-green-500 text-green-100 px-6 py-4 rounded-xl mb-8">
-              ¡Mensaje enviado! Te contactaré pronto.
-            </div>
-          )}
-
-          {status === "error" && (
-            <div className="bg-red-500/20 border border-red-500 text-red-100 px-6 py-4 rounded-xl mb-8">
-              {errorMessage}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Nombre *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="whatsapp" className="block text-sm font-medium mb-2">
-                WhatsApp
-              </label>
-              <input
-                type="tel"
-                id="whatsapp"
-                name="whatsapp"
-                value={formData.whatsapp}
-                onChange={handleChange}
-                placeholder="+52 123 456 7890"
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Mensaje *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-white/30 transition-colors resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="w-full btn-primary text-center disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {status === "loading" ? "Enviando..." : "Enviar mensaje"}
-            </button>
-
-            <p className="text-sm text-accent text-center">
-              No spam. Usaré tus datos solo para contactarte sobre tu proyecto.
-            </p>
-          </form>
-        </div>
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden pt-32 pb-20">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
-    </section>
+
+      <div className="container-custom relative z-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+              Hablemos.
+            </h1>
+            <p className="text-xl text-gray-300">
+              Estoy aquí para convertir tus ideas en resultados.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12 items-start">
+            {/* Columna de Información */}
+            <motion.div
+              variants={itemVariants}
+              className="md:col-span-1 space-y-8"
+            >
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400">Contacto Directo</h3>
+                <p className="text-gray-400 mb-4">
+                  Para una respuesta más rápida, puedes usar estos canales.
+                </p>
+                <div className="space-y-4">
+                  <motion.a
+                    href="mailto:andrelahud@gmail.com"
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                  >
+                    <Mail className="w-6 h-6 text-blue-400" />
+                    <div>
+                      <span className="font-semibold">Email</span>
+                      <span className="block text-sm text-gray-400">andrelahud@gmail.com</span>
+                    </div>
+                  </motion.a>
+                  <motion.a
+                    href="https://wa.me/525514514098"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                  >
+                    <MessageSquare className="w-6 h-6 text-green-400" />
+                    <div>
+                      <span className="font-semibold">WhatsApp</span>
+                      <span className="block text-sm text-gray-400">Iniciar conversación</span>
+                    </div>
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Columna del Formulario */}
+            <motion.div
+              variants={itemVariants}
+              className="md:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="relative">
+                  <User className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Tu nombre"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white/5 border border-white/20 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+                <div className="relative">
+                  <Mail className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Tu email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white/5 border border-white/20 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+                <div className="relative">
+                  <MessageSquare className="absolute top-5 left-4 w-5 h-5 text-gray-400" />
+                  <textarea
+                    name="message"
+                    placeholder="¿En qué puedo ayudarte?"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white/5 border border-white/20 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+                
+                <motion.button
+                  type="submit"
+                  disabled={status === "loading"}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? (
+                    <>
+                      <Loader className="animate-spin w-5 h-5" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      Enviar Mensaje
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
+                </motion.button>
+              </form>
+
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 flex items-center gap-2 text-green-400 p-3 bg-green-500/10 rounded-lg"
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  <p>¡Mensaje enviado! Gracias por contactarme.</p>
+                </motion.div>
+              )}
+
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 flex items-center gap-2 text-red-400 p-3 bg-red-500/10 rounded-lg"
+                >
+                  <AlertTriangle className="w-5 h-5" />
+                  <p>{errorMessage}</p>
+                </motion.div>
+              )}
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 }
