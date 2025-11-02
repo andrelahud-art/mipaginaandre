@@ -1,7 +1,3 @@
-import type { Metadata } from 'next'
-import ContactForm from '@/components/ContactForm'
-import NewsletterForm from '@/components/NewsletterForm'
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -9,20 +5,30 @@ import { AnimatedElement } from '@/components/AnimatedElement';
 import './sobre-mi.css';
 
 export const metadata: Metadata = {
-  title: 'Sobre André Lahud - Estratega Digital y Experto en IA',
-  description: 'Conoce la trayectoria de André Lahud, desde sus inicios en el Líbano hasta convertirse en un líder en transformación digital, inteligencia artificial y estrategias de negocio en Latinoamérica.',
+  title: "Sobre Mí – André Lahud Lira | Estratega Digital & IA",
+  description: "Conoce la trayectoria de André Lahud, un líder en transformación digital, inteligencia artificial y estrategias de negocio que convierte datos en decisiones.",
   keywords: ['André Lahud', 'Estratega Digital', 'Inteligencia Artificial', 'Transformación Digital', 'Consultor de Negocios', 'Líder de Opinión'],
   openGraph: {
-    title: 'Sobre André Lahud - Estratega Digital y Experto en IA',
-    description: 'Descubre la historia y la visión de André Lahud, un pionero en la aplicación de la tecnología para el crecimiento empresarial.',
+    title: "Sobre Mí – André Lahud Lira | Estratega Digital & IA",
+    description: "Descubre la historia y la visión de André Lahud, un pionero en la aplicación de la tecnología para el crecimiento empresarial.",
+    url: "https://mipaginaandre.vercel.app/sobre-mi",
+    siteName: "André Lahud",
     images: [
       {
         url: '/andre-lahud-lira.jpg',
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: 'André Lahud - Perfil Profesional',
       },
     ],
+    locale: "es_MX",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre Mí – André Lahud Lira | Estratega Digital & IA",
+    description: "Conoce la trayectoria de André Lahud, un líder en transformación digital, inteligencia artificial y estrategias de negocio.",
+    images: ['/andre-lahud-lira.jpg'],
   },
 };
 
@@ -68,16 +74,6 @@ const SobreMiPage = () => {
 };
 
 export default SobreMiPage;
-
-
-export default function SobreMi() {
-  return (
-    <main className="min-h-screen bg-[#0B0B0F] text-white">
-      {/* HERO */}
-      <section className="relative flex flex-col md:flex-row items-center justify-between gap-10 py-16 px-6 md:px-12">
-        <div className="flex-1">
-          <p className="uppercase tracking-widest text-xs text-blue-400/80 mb-2">Sobre Mí</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3">André Lahud Lira</h1>
           <h2 className="text-xl md:text-2xl text-gray-300 mb-6">
             Estratega en negocios, IA y transformación digital
           </h2>
