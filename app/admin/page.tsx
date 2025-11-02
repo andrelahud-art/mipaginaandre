@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+// Build trigger: All build errors fixed
+
 interface DashboardStats {
   totalPosts: number;
   totalViews: number;
