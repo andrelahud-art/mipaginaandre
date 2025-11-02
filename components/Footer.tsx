@@ -39,8 +39,13 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Contacto</h4>
             <ul className="space-y-2 text-accent text-sm">
               <li>
-                <a href="mailto:a00573316@itesm.mx" className="hover:text-white transition-colors">
-                  a00573316@itesm.mx
+                <a href="mailto:andrelahud@gmail.com" className="hover:text-white transition-colors">
+                  andrelahud@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/andré-lahud-lira-008720326" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  LinkedIn
                 </a>
               </li>
               <li>

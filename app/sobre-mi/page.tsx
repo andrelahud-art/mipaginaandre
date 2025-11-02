@@ -188,8 +188,8 @@ export default function SobreMi() {
 
           <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
             <div className="space-y-2 text-gray-300">
-              <p><strong>Email:</strong> <a className="text-blue-400 hover:underline" href="mailto:a00573316@itesm.mx">a00573316@itesm.mx</a></p>
-              <p><strong>LinkedIn:</strong> <a className="text-blue-400 hover:underline" href="https://www.linkedin.com">/in/andre-lahud</a></p>
+              <p><strong>Email:</strong> <a className="text-blue-400 hover:underline" href="mailto:andrelahud@gmail.com">andrelahud@gmail.com</a></p>
+              <p><strong>LinkedIn:</strong> <a className="text-blue-400 hover:underline" href="https://www.linkedin.com/in/andré-lahud-lira-008720326" target="_blank" rel="noopener noreferrer">/in/andré-lahud-lira-008720326</a></p>
             </div>
 
             <NewsletterForm />

@@ -19,11 +19,11 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-primary/95 backdrop-blur-sm border-b border-white/10 z-50">
+    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200/50 z-50 transition-all duration-300">
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold hover:text-accent transition-colors">
+          <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-accent transition-colors">
             André Ops
           </Link>
 
@@ -34,8 +34,8 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "hover:text-white transition-colors",
-                  pathname === link.href ? "text-white font-semibold" : "text-accent"
+                  "hover:text-accent transition-colors",
+                  pathname === link.href ? "text-accent font-semibold" : "text-gray-700"
                 )}
               >
                 {link.label}
@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-gray-900"
             aria-label="Toggle menu"
           >
             <svg
@@ -69,15 +69,15 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-white/10">
+          <div className="md:hidden py-4 border-t border-gray-200/50 bg-white">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={clsx(
-                  "block py-3 hover:text-white transition-colors",
-                  pathname === link.href ? "text-white font-semibold" : "text-accent"
+                  "block py-3 hover:text-accent transition-colors",
+                  pathname === link.href ? "text-accent font-semibold" : "text-gray-700"
                 )}
               >
                 {link.label}

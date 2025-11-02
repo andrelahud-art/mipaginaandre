@@ -1,5 +1,101 @@
 [
   {
+    "id": "como-ejercer-tu-influencia",
+    "title": "Certificación: Cómo ejercer tu influencia",
+    "slug": "como-ejercer-tu-influencia",
+    "excerpt": "Curso completado en LinkedIn Learning sobre Influencia en los demás e Influencia social.",
+    "content": "# Certificación: Cómo ejercer tu influencia\n\nEste post valida la finalización del curso **\"Cómo ejercer tu influencia\"** en LinkedIn Learning.\n\n- **Completado por:** André Lahud Lira\n- **Fecha:** 02 de noviembre, 2025\n- **Instructor:** Shea Hanson, directora de estrategia de formación global\n\n## Aptitudes que se tratan\n\n- Influir en los demás\n- Influencia social\n\nEste logro demuestra un compromiso con el desarrollo de habilidades clave para la estrategia y el liderazgo.",
+    "author": "André Lahud Lira",
+    "publishedAt": "2025-11-02T01:52:00.000Z",
+    "tags": [
+      "Certificación",
+      "LinkedIn Learning",
+      "Influencia"
+    ],
+    "readTime": "2 min",
+    "featured": false,
+    "likes": 0,
+    "views": 0,
+    "commentsCount": 0,
+    "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1200&h=600&fit=crop"
+  },
+  {
+    "id": "nuevo-blog-2",
+    "title": "Nuevo Artículo de Blog 2 (Placeholder)",
+    "slug": "nuevo-blog-2",
+    "excerpt": "Este es el resumen (excerpt) de tu segundo nuevo artículo. Edítalo en /data/blog-posts.json.",
+    "content": "# Título de tu Artículo 2\n\nEscribe aquí el contenido completo de tu artículo usando Markdown.",
+    "author": "André Lahud Lira",
+    "publishedAt": "2025-11-01T10:00:00.000Z",
+    "tags": [
+      "IA",
+      "Nuevo"
+    ],
+    "readTime": "5 min",
+    "featured": false,
+    "likes": 0,
+    "views": 0,
+    "commentsCount": 0,
+    "image": "https://images.unsplash.com/photo-1677756128484-a8180f03f0de?w=1200&h=600&fit=crop"
+  },
+  {
+    "id": "nuevo-blog-3",
+    "title": "Nuevo Artículo de Blog 3 (Placeholder)",
+    "slug": "nuevo-blog-3",
+    "excerpt": "Este es el resumen (excerpt) de tu tercer nuevo artículo. Edítalo en /data/blog-posts.json.",
+    "content": "# Título de tu Artículo 3\n\nEscribe aquí el contenido completo de tu artículo usando Markdown.",
+    "author": "André Lahud Lira",
+    "publishedAt": "2025-10-31T10:00:00.000Z",
+    "tags": [
+      "Estrategia",
+      "Nuevo"
+    ],
+    "readTime": "5 min",
+    "featured": false,
+    "likes": 0,
+    "views": 0,
+    "commentsCount": 0,
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop"
+  },
+  {
+    "id": "nuevo-blog-4",
+    "title": "Nuevo Artículo de Blog 4 (Placeholder)",
+    "slug": "nuevo-blog-4",
+    "excerpt": "Este es el resumen (excerpt) de tu cuarto nuevo artículo. Edítalo en /data/blog-posts.json.",
+    "content": "# Título de tu Artículo 4\n\nEscribe aquí el contenido completo de tu artículo usando Markdown.",
+    "author": "André Lahud Lira",
+    "publishedAt": "2025-10-30T10:00:00.000Z",
+    "tags": [
+      "Datos",
+      "Nuevo"
+    ],
+    "readTime": "5 min",
+    "featured": false,
+    "likes": 0,
+    "views": 0,
+    "commentsCount": 0,
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=600&fit=crop"
+  },
+  {
+    "id": "nuevo-blog-5",
+    "title": "Nuevo Artículo de Blog 5 (Placeholder)",
+    "slug": "nuevo-blog-5",
+    "excerpt": "Este es el resumen (excerpt) de tu quinto nuevo artículo. Edítalo en /data/blog-posts.json.",
+    "content": "# Título de tu Artículo 5\n\nEscribe aquí el contenido completo de tu artículo usando Markdown.",
+    "author": "André Lahud Lira",
+    "publishedAt": "2025-10-29T10:00:00.000Z",
+    "tags": [
+      "Negocios",
+      "Nuevo"
+    ],
+    "readTime": "5 min",
+    "featured": false,
+    "likes": 0,
+    "views": 0,
+    "commentsCount": 0,
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop"
+  },
+  {
     "id": "automatizacion-ia-estrategia",
     "title": "Automatización con IA: Más Allá de la Eficiencia",
     "slug": "automatizacion-ia-estrategia",

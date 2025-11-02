@@ -1,3 +1,4 @@
+/* Usar las variables de fuente de next/font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
 
 @tailwind base;
@@ -7,46 +8,72 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: var(--font-inter), system-ui, sans-serif; /* Fuente base "Apple" */
   }
   
   body {
-    @apply bg-primary text-white antialiased;
+    /* Modo Claro por defecto */
+    @apply bg-white text-gray-900 antialiased; 
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading; /* Fuente Poppins para cabeceras */
+  }
+
+  main {
+    @apply pt-20; /* Espacio para el Navbar 'sticky' */
+  }
+
+  /* Espaciado de sección profesional (más aire) */
+  .section-padding {
+    @apply py-24 lg:py-32;
   }
 }
 
 @layer components {
+  /* Contenedor principal */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
   }
   
+  /* Botón Primario (Modo Claro) */
   .btn-primary {
-    @apply bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent hover:text-white transition-all duration-300 inline-block;
+    @apply bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-accent 
+           transition-all duration-300 inline-block
+           shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5;
   }
   
+  /* Botón Secundario (Modo Claro) */
   .btn-secondary {
-    @apply border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary transition-all duration-300 inline-block;
+    @apply border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg font-semibold 
+           hover:bg-gray-800 hover:text-white 
+           transition-all duration-300 inline-block
+           shadow-lg hover:shadow-gray-900/30 transform hover:-translate-y-0.5;
   }
   
+  /* Tarjetas (Modo Claro - "Glassmorphism" sutil) */
   .card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300;
+    @apply bg-gray-50/50 backdrop-blur-lg border border-gray-200/50 rounded-2xl p-8 
+           transition-all duration-300 ease-in-out
+           shadow-xl shadow-gray-900/5;
+  }
+  .card:hover {
+    @apply bg-white/60 border-gray-200/80 transform -translate-y-1 shadow-2xl shadow-gray-900/10;
   }
 
-  /* Blog Article Cards with enhanced design */
+  /* Tarjetas de Blog (Modo Claro) */
   .blog-card {
-    @apply bg-gray-100/10 backdrop-blur-sm border border-gray-200/20 rounded-xl p-6 transition-all duration-300 ease-in-out;
+    @apply bg-white border border-gray-200/50 rounded-xl p-6 
+           transition-all duration-300 ease-in-out
+           shadow-xl shadow-gray-900/5;
   }
-
   .blog-card:hover {
-    @apply shadow-2xl;
+    @apply shadow-2xl shadow-blue-500/20;
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
-  /* Grid layout for blog posts */
+  /* Grid de Blog */
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -54,61 +81,36 @@
     margin-bottom: 4rem;
   }
 
-  /* Featured post layout */
+  /* Píldoras de Tags (Modo Claro) */
+  .tag-pill {
+    @apply inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full
+           bg-blue-100 text-blue-800
+           border border-blue-200/50
+           transition-all duration-200;
+  }
+  .tag-pill:hover {
+    @apply bg-blue-200/60 scale-105;
+  }
+  
+  /* Clases de Blog (ya las tenías) */
   .featured-post {
     @apply col-span-full mb-12;
   }
-
-  /* Tag pills/chips */
-  .tag-pill {
-    @apply inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full;
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    transition: all 0.2s ease;
-  }
-
-  .tag-pill:hover {
-    background-color: rgba(59, 130, 246, 0.2);
-    transform: scale(1.05);
-  }
-
-  /* Featured image overlay */
   .featured-image-container {
     @apply relative overflow-hidden rounded-lg;
   }
-
   .featured-image-container::before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 100%);
-    z-index: 1;
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10;
   }
-
   .featured-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    z-index: 2;
-    color: white;
+    @apply absolute bottom-0 left-0 right-0 p-8 z-20 text-white;
   }
   
-  .section-padding {
-    @apply py-20 lg:py-32;
-  }
-
-  /* Enhanced section spacing */
   .section-large-spacing {
     @apply py-24 lg:py-40;
   }
 
-  /* Line clamp utility for blog excerpts */
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -118,35 +120,18 @@
   }
 }
 
-/* WhatsApp Button */
+/* Botón de WhatsApp (Sin cambios, ya estaba bien) */
 .whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #25d366;
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 3px #999;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+  @apply fixed w-14 h-14 bottom-10 right-10 bg-[#25d366] text-white rounded-full 
+         text-3xl shadow-lg z-50 flex items-center justify-center
+         transition-all duration-300 ease-in-out;
 }
-
 .whatsapp-float:hover {
-  transform: scale(1.1);
+  @apply scale-110 shadow-xl;
 }
 
 @media (max-width: 768px) {
   .whatsapp-float {
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    @apply bottom-5 right-5 w-12 h-12;
   }
 }

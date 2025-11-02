@@ -62,10 +62,10 @@ export default function Contacto() {
             <div className="text-5xl mb-4">📧</div>
             <h3 className="text-xl font-bold mb-4">Email</h3>
             <a 
-              href="mailto:a00573316@itesm.mx"
+              href="mailto:andrelahud@gmail.com"
               className="text-accent hover:text-white transition-colors break-all"
             >
-              a00573316@itesm.mx
+              andrelahud@gmail.com
             </a>
           </div>
 
