@@ -2,8 +2,5 @@
   "buildCommand": "next build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "crons": [],
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": "@next_public_site_url"
-  }
+  "crons": []
 }
