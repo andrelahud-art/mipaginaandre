@@ -6,18 +6,29 @@ interface Props {
   children: ReactNode;
   delay?: number;
   className?: string;
+  direction?: "up" | "down" | "left" | "right";
 }
 
 /**
  * Componente reutilizable para animar elementos cuando entran en la vista.
- * Usa Framer Motion para una animación suave de "fade in" y "slide up".
- * Utiliza `whileInView` para una detección de vista más robusta y compatible con SSR.
+ * Usa Framer Motion para una animación suave de "fade in" y "slide".
+ * La dirección del slide se puede controlar con la prop `direction`.
  */
-export function AnimatedElement({ children, delay = 0, className }: Props) {
+export function AnimatedElement({
+  children,
+  delay = 0,
+  className,
+  direction = "up",
+}: Props) {
   const variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: {
+      opacity: 0,
+      x: direction === "left" ? -20 : direction === "right" ? 20 : 0,
+      y: direction === "up" ? 20 : direction === "down" ? -20 : 0,
+    },
     visible: {
       opacity: 1,
+      x: 0,
       y: 0,
     },
   };
