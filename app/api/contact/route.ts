@@ -3,7 +3,7 @@ import { Resend } from "resend";
 import fs from "fs";
 import path from "path";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: Request) {
   try {
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     fs.writeFileSync(leadsPath, JSON.stringify(leads, null, 2));
 
     // Enviar email con Resend (si está configurado)
-    if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== "re_********************************") {
+    if (resend && process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== "re_********************************") {
       try {
         await resend.emails.send({
           from: "contacto@andre-ops.com",
