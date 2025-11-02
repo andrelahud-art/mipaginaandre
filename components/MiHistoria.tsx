@@ -97,24 +97,54 @@ export default function MiHistoria() {
 
   const timeline = [
     {
-      year: "2010-2014",
-      title: "Fundamentos",
-      description: "Licenciatura en Administración y Finanzas (Tec de Monterrey). Bases sólidas en números y estrategia."
+      year: "1️⃣",
+      title: "Inicié mi camino emprendedor a los 14 años.",
+      description: "Empecé fabricando y vendiendo marquesitas artesanales premium, descubriendo desde temprano el valor del producto, la marca y la experiencia del cliente."
     },
     {
-      year: "2015-2018",
-      title: "E-commerce",
-      description: "Liderazgo en operaciones digitales. Aprendí a escalar negocios en entornos competitivos y dinámicos."
+      year: "2️⃣",
+      title: "Gestioné alojamientos con visión empresarial.",
+      description: "Administré varios espacios tipo Airbnb, optimizando ocupación, atención y flujo operativo con resultados que superaban los ingresos esperados para mi edad."
     },
     {
-      year: "2019-2021",
-      title: "Formación",
-      description: "Capacitador en escuelas de negocio. Desarrollé la habilidad de traducir complejidad en acción."
+      year: "3️⃣",
+      title: "Aprendí a liderar operaciones reales.",
+      description: "A esa edad, ya entendía lo que pocos jóvenes comprenden: cómo equilibrar ingresos, gastos y crecimiento sin perder calidad ni enfoque."
     },
     {
-      year: "2022-Presente",
-      title: "Consultoría Estratégica",
-      description: "Acompañamiento a empresas en transformación. Combinando estrategia, IA y ejecución práctica."
+      year: "4️⃣",
+      title: "Fundé mi primer negocio digital: “Todo Para Tu Familia”.",
+      description: "Transformé una idea en un e-commerce rentable, aplicando estrategia, reinversión y control financiero hasta alcanzar operaciones automatizadas y escalables."
+    },
+    {
+      year: "5️⃣",
+      title: "Me certifiqué como agente de seguros.",
+      description: "Esa etapa me enseñó a vender valor y confianza, desarrollando habilidades de comunicación, negociación y análisis de riesgo."
+    },
+    {
+      year: "6️⃣",
+      title: "Exploré la tecnología aplicada al entorno real.",
+      description: "Lancé un negocio de instalación de cámaras y automatización, uniendo visión técnica con ejecución precisa y servicio personalizado."
+    },
+    {
+      year: "7️⃣",
+      title: "Construí “André Finances”.",
+      description: "Desarrollé mi propio sistema de gestión financiera digital, diseñado para monitorear activos, deudas y flujo de efectivo con tecnología moderna."
+    },
+    {
+      year: "8️⃣",
+      title: "Cree un modelo de IA aplicada a negocios.",
+      description: "Diseñé e impartí capacitaciones prácticas que ayudan a empresarios y profesionales a usar inteligencia artificial para vender, comunicar y optimizar procesos."
+    },
+    {
+      year: "9️⃣",
+      title: "Amplié mi visión con experiencias internacionales.",
+      description: "Participé en programas, viajes y colaboraciones que me permitieron entender el negocio desde una mirada global: cómo piensan, ejecutan y escalan los líderes fuera de México."
+    },
+    {
+      year: "🔟",
+      title: "Consolidé mi propósito profesional.",
+      description: "Hoy, mi enfoque es claro: diseñar estrategias que generen resultados reales, combinando pensamiento empresarial, finanzas y tecnología con impacto humano."
     }
   ];
 
