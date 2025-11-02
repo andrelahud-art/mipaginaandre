@@ -27,7 +27,7 @@ const contactOptions = [
 		icon: MessageCircle,
 		title: "WhatsApp",
 		handle: "Chat Directo",
-		href: "https://wa.me/5215532254095",
+		href: "https://wa.me/524777068594",
 		cta: "Iniciar Conversación",
 		color: "hover:border-green-500",
 		shadow: "hover:shadow-green-500/20"
