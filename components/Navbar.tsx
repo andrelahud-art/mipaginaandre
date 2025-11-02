@@ -8,6 +8,7 @@ import clsx from "clsx";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const dark = pathname === "/" || pathname.startsWith("/servicios");
 
   const links = [
     { href: "/", label: "Inicio" },
@@ -18,11 +19,24 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200/50 z-50 transition-all duration-300">
+    <nav
+      className={clsx(
+        "fixed top-0 w-full backdrop-blur-sm z-50 transition-all duration-300",
+        dark
+          ? "bg-black/60 border-b border-white/10"
+          : "bg-white/95 border-b border-gray-200/50"
+      )}
+    >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-accent transition-colors">
+          <Link
+            href="/"
+            className={clsx(
+              "text-2xl font-bold transition-colors",
+              dark ? "text-white hover:text-blue-300" : "text-gray-900 hover:text-accent"
+            )}
+          >
             André Ops
           </Link>
 
@@ -33,8 +47,14 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "hover:text-accent transition-colors",
-                  pathname === link.href ? "text-accent font-semibold" : "text-gray-700"
+                  "transition-colors",
+                  dark
+                    ? pathname === link.href
+                      ? "text-blue-300 font-semibold"
+                      : "text-gray-200 hover:text-blue-300"
+                    : pathname === link.href
+                    ? "text-accent font-semibold"
+                    : "text-gray-700 hover:text-accent"
                 )}
               >
                 {link.label}
@@ -45,7 +65,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-900"
+            className={clsx("md:hidden p-2", dark ? "text-white" : "text-gray-900")}
             aria-label="Toggle menu"
           >
             <svg
@@ -68,15 +88,26 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200/50 bg-white">
+          <div
+            className={clsx(
+              "md:hidden py-4 border-t",
+              dark ? "bg-black/80 border-white/10" : "bg-white border-gray-200/50"
+            )}
+          >
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={clsx(
-                  "block py-3 hover:text-accent transition-colors",
-                  pathname === link.href ? "text-accent font-semibold" : "text-gray-700"
+                  "block py-3 transition-colors",
+                  dark
+                    ? pathname === link.href
+                      ? "text-blue-300 font-semibold"
+                      : "text-gray-200 hover:text-blue-300"
+                    : pathname === link.href
+                    ? "text-accent font-semibold"
+                    : "text-gray-700 hover:text-accent"
                 )}
               >
                 {link.label}

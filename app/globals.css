@@ -119,6 +119,32 @@
     overflow: hidden;
   }
 }
+.theme-dark {
+  background: #0a0a0a;
+  color: #fff;
+}
+.theme-dark .btn-primary {
+  @apply bg-blue-600 text-white border-0;
+}
+.theme-dark .btn-primary:hover {
+  box-shadow: 0 0 24px rgba(96,165,250,0.6), 0 0 48px rgba(96,165,250,0.3);
+}
+.theme-dark .btn-secondary {
+  @apply border-white/30 text-white;
+}
+.theme-dark .card {
+  @apply bg-white/5 border-white/10 text-white;
+}
+.theme-dark .card-simple {
+  @apply bg-white/5 border-white/10 text-white;
+}
+.theme-dark .label {
+  @apply bg-white/10 text-white;
+}
+.theme-dark .text-accent,
+.theme-dark .prose a {
+  color: #93c5fd; /* blue-300 */
+}
 
 /* Botón de WhatsApp (Sin cambios, ya estaba bien) */
 .whatsapp-float {

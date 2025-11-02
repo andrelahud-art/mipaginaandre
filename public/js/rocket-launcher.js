@@ -38,6 +38,8 @@
 
             async init(){
             try {
+                    // Only on homepage
+                    try { if (location && location.pathname !== '/') { return; } } catch(_) {}
                     // Run once per session
                     try{ if(window.sessionStorage && sessionStorage.getItem('nirvanaShown')==='1'){ return; } }catch(_){ /* ignore */ }
                 if(!this.isWebGLAvailable()){
