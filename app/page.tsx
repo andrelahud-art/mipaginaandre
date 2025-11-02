@@ -12,8 +12,25 @@ export default function HomePage() {
       {/* Rocket Animation */}
       <RocketAnimation />
 
-      {/* Hero Section */}
-      <div className="absolute top-0 left-0 right-0 h-[100vh] bg-gradient-to-b from-blue-50 to-white -z-10"></div>
+      {/* Hero Section with Dynamic Background */}
+      <style>{`
+        @keyframes bgReveal {
+          0% { 
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 1));
+          }
+          50% {
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.15), rgba(255, 255, 255, 1));
+          }
+          100% {
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.05), rgba(255, 255, 255, 1));
+          }
+        }
+        
+        .hero-bg {
+          animation: bgReveal 5s ease-in-out forwards;
+        }
+      `}</style>
+      <div className="absolute top-0 left-0 right-0 h-[100vh] hero-bg -z-10"></div>
       
       <header className="relative z-10 text-center py-32 section-padding">
         <div className="container-custom">
