@@ -14,7 +14,7 @@ export default function Navbar() {
     { href: "/sobre-mi", label: "Sobre Mí" },
     { href: "/servicios", label: "Servicios" },
     { href: "/blog", label: "Blog" },
-    { href: "/contacto", label: "Contacto" },
+    { href: "/contacto", label: "Hablemos" },
   ];
 
   return (

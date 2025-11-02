@@ -4,13 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  experimental: {
-    optimizePackageImports: ['lucide-react']
-  },
-  eslint: {
-    // DISABLE ESLint during production builds completely
-    ignoreDuringBuilds: true,
-  },
+  // Next.js 16: optimizePackageImports is now a stable top-level option (no longer under experimental)
+  optimizePackageImports: ['lucide-react'],
   typescript: {
     // Keep TypeScript checks enabled
     ignoreBuildErrors: false,

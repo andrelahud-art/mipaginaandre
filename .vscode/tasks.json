@@ -19,7 +19,10 @@
 			"label": "🔄 Sync Blog Content (MD → JSON)",
 			"type": "shell",
 			"command": "npm",
-			"args": ["run", "blog:sync"],
+			"args": [
+				"run",
+				"blog:sync"
+			],
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -33,7 +36,10 @@
 			"label": "📝 Create Markdown from JSON",
 			"type": "shell",
 			"command": "npm",
-			"args": ["run", "blog:json-to-md"],
+			"args": [
+				"run",
+				"blog:json-to-md"
+			],
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -47,7 +53,10 @@
 			"label": "🏗️ Build for Production",
 			"type": "shell",
 			"command": "npm",
-			"args": ["run", "build"],
+			"args": [
+				"run",
+				"build"
+			],
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -56,6 +65,17 @@
 				"panel": "shared"
 			},
 			"problemMatcher": "$tsc"
+		},
+		{
+			"label": "Local Next Build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	]
 }

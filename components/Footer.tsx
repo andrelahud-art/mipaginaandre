@@ -29,7 +29,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Recursos</h4>
             <ul className="space-y-2 text-accent text-sm">
-              <li><Link href="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
+              <li><Link href="/contacto" className="hover:text-white transition-colors">Hablemos</Link></li>
             </ul>
           </div>
 

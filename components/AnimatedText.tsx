@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface AnimatedTextProps {
   text: string;
@@ -9,7 +9,7 @@ interface AnimatedTextProps {
   delay?: number;
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: (delay: number = 0) => ({
     opacity: 1,
@@ -20,14 +20,15 @@ const containerVariants = {
   }),
 };
 
-const letterVariants = {
+const letterVariants: Variants = {
   hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
     transition: {
-      type: "spring",
+      // 'spring' is the desired animation; cast as const to satisfy the type definitions
+      type: "spring" as const,
       damping: 12,
       stiffness: 200,
     },

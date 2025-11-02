@@ -22,15 +22,6 @@ export default function HomePage() {
               Convierto objetivos agresivos en resultados medibles. Menos discurso, más ejecución.
             </p>
           </AnimatedElement>
-          
-          <AnimatedElement delay={1} className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contacto" className="btn-primary">
-              Agendar un diagnóstico
-            </Link>
-            <Link href="/servicios" className="btn-secondary">
-              Ver servicios
-            </Link>
-          </AnimatedElement>
         </div>
       </header>
       
@@ -136,14 +127,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* CTA (ya es un componente) */}
-      <CTA 
-        title="¿Listo para empezar?"
-        description="Agenda un diagnóstico y hablemos de cómo puedo ayudarte."
-        buttonText="Agendar ahora"
-        buttonLink="/contacto"
-      />
 
       {/* Mi Historia - Sección innovadora */}
       <MiHistoria />
