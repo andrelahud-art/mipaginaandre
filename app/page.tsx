@@ -17,11 +17,23 @@ export default function HomePage() {
       
       <header className="relative z-10 text-center py-32 section-padding">
         <div className="container-custom">
-          <AnimatedText 
-            text="Estrategia • Inteligencia Artificial • Creación de Valor"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-dark"
-          />
-          <AnimatedElement delay={0.8}>
+          <div className="space-y-3 mb-6">
+            <AnimatedText 
+              text="Estrategia"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-dark"
+            />
+            <AnimatedText 
+              text="Inteligencia Artificial"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-dark"
+              delay={0.3}
+            />
+            <AnimatedText 
+              text="Creación de Valor"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-dark"
+              delay={0.6}
+            />
+          </div>
+          <AnimatedElement delay={1.2}>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
               Convierto objetivos agresivos en resultados medibles. Menos discurso, más ejecución.
             </p>
