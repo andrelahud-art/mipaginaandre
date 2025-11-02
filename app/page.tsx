@@ -2,6 +2,7 @@ import Link from "next/link";
 import LogoStrip from "@/components/LogoStrip";
 import CTA from "@/components/CTA";
 import { AnimatedElement } from "@/components/AnimatedElement";
+import MiHistoria from "@/components/MiHistoria";
 
 export default function HomePage() {
   return (
@@ -144,6 +145,9 @@ export default function HomePage() {
         buttonText="Agendar ahora"
         buttonLink="/contacto"
       />
+
+      {/* Mi Historia - Sección innovadora */}
+      <MiHistoria />
     </>
   );
 }
