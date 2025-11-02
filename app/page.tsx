@@ -4,10 +4,14 @@ import CTA from "@/components/CTA";
 import { AnimatedElement } from "@/components/AnimatedElement";
 import MiHistoria from "@/components/MiHistoria";
 import AnimatedText from "@/components/AnimatedText";
+import RocketAnimation from "@/components/RocketAnimation";
 
 export default function HomePage() {
   return (
     <>
+      {/* Rocket Animation */}
+      <RocketAnimation />
+
       {/* Hero Section */}
       <div className="absolute top-0 left-0 right-0 h-[100vh] bg-gradient-to-b from-blue-50 to-white -z-10"></div>
       
@@ -15,7 +19,7 @@ export default function HomePage() {
         <div className="container-custom">
           <AnimatedText 
             text="Estrategia • Inteligencia Artificial • Creación de Valor"
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-dark"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-dark"
           />
           <AnimatedElement delay={0.8}>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
