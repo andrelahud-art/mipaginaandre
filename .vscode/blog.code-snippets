@@ -1,0 +1,125 @@
+{
+  "Blog Post Template": {
+    "scope": "markdown",
+    "prefix": "blog-post",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "slug: \"$2\"", 
+      "excerpt: \"$3\"",
+      "author: \"André Lahud\"",
+      "publishedAt: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T10:00:00.000Z\"",
+      "tags: [\"$4\", \"$5\"]",
+      "readTime: \"$6 min\"",
+      "featured: ${7|true,false|}",
+      "image: \"$8\"",
+      "---",
+      "",
+      "# $1",
+      "",
+      "$9",
+      "",
+      "## $10",
+      "",
+      "$11",
+      "",
+      "### $12",
+      "",
+      "$13",
+      "",
+      "---",
+      "",
+      "### ¿Te gustó este artículo?",
+      "",
+      "$14",
+      "",
+      "[Conversemos sobre cómo implementar esto en tu empresa →](mailto:contacto@andrelahud.com)"
+    ],
+    "description": "Template para nuevo post del blog con frontmatter completo"
+  },
+  "Frontmatter Only": {
+    "scope": "markdown",
+    "prefix": "frontmatter",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "slug: \"$2\"", 
+      "excerpt: \"$3\"",
+      "author: \"André Lahud\"",
+      "publishedAt: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T10:00:00.000Z\"",
+      "tags: [\"$4\", \"$5\"]",
+      "readTime: \"$6 min\"",
+      "featured: ${7|true,false|}",
+      "image: \"$8\"",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Solo frontmatter para posts del blog"
+  },
+  "Blog Section": {
+    "scope": "markdown",
+    "prefix": "section",
+    "body": [
+      "## $1",
+      "",
+      "$2",
+      "",
+      "### $3",
+      "",
+      "$4",
+      "",
+      "$0"
+    ],
+    "description": "Sección de blog con título y subtítulo"
+  },
+  "Code Example": {
+    "scope": "markdown", 
+    "prefix": "code-example",
+    "body": [
+      "**Ejemplo práctico:**",
+      "",
+      "```${1:javascript}",
+      "$2",
+      "```",
+      "",
+      "**Resultado:** $3",
+      "",
+      "$0"
+    ],
+    "description": "Ejemplo de código con explicación"
+  },
+  "Success Case": {
+    "scope": "markdown",
+    "prefix": "case-study",
+    "body": [
+      "### Caso $1: $2",
+      "",
+      "**Problema:** $3",
+      "**Insight:** $4", 
+      "**Acción:** $5",
+      "**Resultado:** $6",
+      "",
+      "$0"
+    ],
+    "description": "Template para caso de éxito"
+  },
+  "CTA Block": {
+    "scope": "markdown",
+    "prefix": "cta",
+    "body": [
+      "---",
+      "",
+      "### $1",
+      "",
+      "$2",
+      "",
+      "**$3**",
+      "",
+      "[Conversemos sobre cómo implementar esto en tu empresa →](mailto:contacto@andrelahud.com)",
+      "",
+      "$0"
+    ],
+    "description": "Call to action al final del post"
+  }
+}

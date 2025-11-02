@@ -1,0 +1,35 @@
+[
+  {
+    "titulo": "Transformación con IA para PyMEs",
+    "descripcion": "Implemento automatizaciones, asistentes y reportes inteligentes que liberan tiempo y aceleran decisiones.",
+    "queEntrego": [
+      "Automatizaciones de procesos repetitivos",
+      "Asistentes para ventas, soporte o cobranza",
+      "Dashboards y reportes con IA",
+      "Integración con herramientas existentes"
+    ],
+    "resultados": "+30-60% en velocidad operativa, menos errores manuales, más foco en lo estratégico."
+  },
+  {
+    "titulo": "Entrenamientos de IA para equipos comerciales",
+    "descripcion": "Capacito a tu equipo de ventas para usar IA de manera práctica: prospección, seguimiento, cierre.",
+    "queEntrego": [
+      "Playbooks con prompts específicos para cada etapa",
+      "Flujos de trabajo adaptados a tu CRM",
+      "Sesiones prácticas (no teóricas)",
+      "Métricas de adopción y resultados"
+    ],
+    "resultados": "Más citas agendadas, más cierres documentados, ciclos de venta más cortos. Resultados medibles en semanas."
+  },
+  {
+    "titulo": "Estrategia y escalamiento",
+    "descripcion": "Diseño roadmaps, OKRs y sistemas de control para que tu crecimiento sea sostenible y no caótico.",
+    "queEntrego": [
+      "Roadmap estratégico trimestral",
+      "Definición de OKRs y métricas clave",
+      "Tableros de control ejecutivo",
+      "Validación de hipótesis con pruebas controladas"
+    ],
+    "resultados": "Foco claro, crecimiento con control de riesgo, decisiones basadas en datos, no en intuición."
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "1",
+    "postId": "1",
+    "author": "María González",
+    "email": "maria@empresa.com",
+    "content": "Excelente artículo André. Implementamos algo similar en nuestra distribuidora y los resultados han sido increíbles. ¿Tienes algún consejo para medir el ROI de manera más precisa?",
+    "createdAt": "2025-01-16T15:30:00Z",
+    "likes": 3,
+    "replies": [
+      {
+        "id": "1-1",
+        "author": "André Lahud",
+        "content": "¡Gracias María! Para medir ROI te recomiendo estos KPIs: tiempo de respuesta promedio, tasa de conversión de consulta a cotización, y horas-persona liberadas. ¿Quieres que hagamos una sesión para revisar tus métricas específicas?",
+        "createdAt": "2025-01-16T18:45:00Z",
+        "likes": 1
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "postId": "1",
+    "author": "Carlos Ruiz",
+    "email": "carlos@startup.mx",
+    "content": "¿Qué presupuesto aproximado necesitaríamos para implementar esto en una startup de 20 personas?",
+    "createdAt": "2025-01-17T10:15:00Z",
+    "likes": 2,
+    "replies": []
+  },
+  {
+    "id": "3",
+    "postId": "2",
+    "author": "Ana López",
+    "email": "ana@consultora.com",
+    "content": "Totalmente de acuerdo. Veo muchas empresas que quieren 'hacer IA' sin tener ni siquiera un proceso de ventas documentado. El orden importa.",
+    "createdAt": "2025-01-11T12:20:00Z",
+    "likes": 5,
+    "replies": []
+  }
+]

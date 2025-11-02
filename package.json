@@ -1,0 +1,40 @@
+{
+  "name": "andre-lahud",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "blog:md-to-json": "node scripts/blog-converter.js md-to-json",
+    "blog:json-to-md": "node scripts/blog-converter.js json-to-md",
+    "blog:sync": "npm run blog:md-to-json && echo '✅ Blog content synced!'"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.18",
+    "@types/mdx": "^2.0.13",
+    "clsx": "^2.1.1",
+    "contentful": "^11.8.9",
+    "contentful-management": "^11.62.0",
+    "framer-motion": "^11.5.4",
+    "gray-matter": "^4.0.3",
+    "next": "^14.2.33",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.18",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "5.9.3"
+  }
+}

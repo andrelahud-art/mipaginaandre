@@ -1,0 +1,38 @@
+{
+  "name": "André Lahud",
+  "title": "Estrategia, IA y Creación de Valor",
+  "bio": "Especialista en transformación digital con 10+ años ayudando empresas a implementar IA y estrategias de datos para crear ventajas competitivas sostenibles.",
+  "email": "contacto@andrelahud.com",
+  "linkedin": "https://linkedin.com/in/andrelahud",
+  "location": "Ciudad de México, México",
+  "avatar": "/hero-linkedin.jpg",
+  "heroImage": "/hero-linkedin.jpg",
+  "skills": [
+    "Inteligencia Artificial",
+    "Estrategia Digital",
+    "Análisis de Datos",
+    "Automatización",
+    "Transformación Digital",
+    "Consultoría Estratégica"
+  ],
+  "experience": "10+ años en consultoría estratégica",
+  "education": "MBA en Estrategia Digital",
+  "phone": "+52 55 1234 5678",
+  "website": "https://andrelahud.com",
+  "languages": ["Español", "Inglés", "Portugués"],
+  "certifications": [
+    "Certified AI Strategist",
+    "Google Analytics Certified",
+    "AWS Cloud Practitioner"
+  ],
+  "socialMedia": {
+    "twitter": "https://twitter.com/andrelahud",
+    "instagram": "https://instagram.com/andrelahud",
+    "youtube": "https://youtube.com/@andrelahud"
+  },
+  "aboutPage": {
+    "story": "Mi historia comenzó hace más de una década cuando descubrí el poder de combinar estrategia empresarial con tecnología emergente...",
+    "mission": "Ayudar a empresas a navegar la transformación digital con estrategias claras y implementación práctica.",
+    "values": ["Innovación", "Transparencia", "Resultados", "Aprendizaje Continuo"]
+  }
+}

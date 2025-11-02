@@ -1,0 +1,28 @@
+[
+  {
+    "titulo": "E-commerce regional: +45% en conversión con IA",
+    "problema": "Tasa de conversión estancada en 2.1%, carrito abandonado en 68%, atención al cliente saturada.",
+    "intervencion": "Implementé asistente de ventas por WhatsApp integrado a inventario, sistema de recomendaciones personalizadas y automatización de seguimiento a carritos abandonados.",
+    "resultado": "+45% en conversión (de 2.1% a 3.0%), -35% en abandono de carrito, +$280K MXN en ventas incrementales primer trimestre.",
+    "stack": ["GPT-4", "WhatsApp Business API", "Shopify", "Google Analytics"],
+    "tiempo": "6 semanas (prototipo en 10 días)",
+    "testimonio": "Pasamos de reaccionar a consultas a anticiparnos a lo que el cliente necesita. El cambio fue inmediato."
+  },
+  {
+    "titulo": "Distribuidora B2B: recuperación de $450K en flujo de caja",
+    "problema": "Clientes pagando a 52 días promedio, CFO dedicando 15 horas semanales a cobranza manual, falta de visibilidad en cuentas por cobrar.",
+    "intervencion": "Automatización inteligente de cobranza con recordatorios personalizados, predicción de riesgo de mora y dashboard ejecutivo de cuentas por cobrar.",
+    "resultado": "Días de cobro: 52 → 28 días. $450K MXN liberados en flujo de caja. Tiempo del CFO en cobranza: 15 → 2 horas semanales.",
+    "stack": ["Python", "OpenAI API", "Twilio", "Power BI"],
+    "tiempo": "8 semanas"
+  },
+  {
+    "titulo": "Equipo de ventas B2B: +60% en citas agendadas",
+    "problema": "SDRs gastando 70% de su tiempo en tareas operativas, bajo volumen de citas con prospectos calificados, falta de consistencia en seguimientos.",
+    "intervencion": "Entrenamiento práctico de IA para ventas, playbook con prompts específicos por etapa, automatización de investigación de prospectos y flujo de seguimiento inteligente.",
+    "resultado": "+60% en citas agendadas, +40% en tasa de respuesta, 70% del tiempo recuperado para conversaciones de valor.",
+    "stack": ["Claude", "ChatGPT", "LinkedIn Sales Navigator", "HubSpot"],
+    "tiempo": "4 semanas (implementación + seguimiento)",
+    "testimonio": "Ahora mis SDRs se enfocan en vender, no en buscar información. El playbook es oro puro."
+  }
+]
