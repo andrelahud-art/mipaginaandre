@@ -1,0 +1,13 @@
+# Ignore admin files completely
+app/_admin_disabled/
+app/api/_admin_disabled/
+**/admin/
+**/*admin*
+
+# Ignore build artifacts
+.next/
+node_modules/
+
+# Ignore local files
+.env.local
+.DS_Store
