@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll"; // Importar SmoothScroll
@@ -54,6 +55,9 @@ export default function RootLayout({
         >
           💬
         </a>
+
+        {/* Overlay de alto rendimiento: carga diferida después de la interacción */}
+        <Script src="/js/rocket-launcher.js" strategy="afterInteractive" />
       </body>
     </html>
   );
