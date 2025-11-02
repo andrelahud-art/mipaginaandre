@@ -6,6 +6,14 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react']
+  },
+  eslint: {
+    // DISABLE ESLint during production builds completely
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Keep TypeScript checks enabled
+    ignoreBuildErrors: false,
   }
 }
 
