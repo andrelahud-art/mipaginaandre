@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Estratega en negocios, IA y transformación digital.",
     url: "https://mipaginaandre.vercel.app/sobre-mi",
     siteName: "André Lahud",
-    images: [{ url: "/images/andre-og.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/andre-lahud-perfil.jpg", width: 1200, height: 630 }],
     locale: "es_MX",
     type: "profile",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sobre Mí – André Lahud Lira",
     description: "Estratega en negocios, IA y transformación digital.",
-    images: ["/images/andre-og.jpg"],
+    images: ["/andre-lahud-perfil.jpg"],
   },
 };
 
@@ -49,7 +49,7 @@ export default function SobreMi() {
 
         <div className="flex-1 flex justify-center">
           <img
-            src="/images/andre-perfil.jpg"
+            src="/andre-lahud-perfil.jpg"
             alt="Foto profesional de André Lahud"
             className="w-72 h-72 object-cover rounded-3xl shadow-xl border border-gray-800"
           />
