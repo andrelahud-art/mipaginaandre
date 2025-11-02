@@ -177,7 +177,7 @@ export default function AdminDashboard() {
                     <div className="min-w-0 flex-1 pt-1.5">
                       <div>
                         <p className="text-sm text-gray-500">
-                          Nuevo post publicado: "Automatización con IA"
+                          Nuevo post publicado: &quot;Automatización con IA&quot;
                         </p>
                         <p className="text-xs text-gray-400">Hace 2 horas</p>
                       </div>
@@ -194,7 +194,7 @@ export default function AdminDashboard() {
                     <div className="min-w-0 flex-1 pt-1.5">
                       <div>
                         <p className="text-sm text-gray-500">
-                          Nuevo comentario en "Análisis de Datos"
+                          Nuevo comentario en &quot;Análisis de Datos&quot;
                         </p>
                         <p className="text-xs text-gray-400">Hace 4 horas</p>
                       </div>

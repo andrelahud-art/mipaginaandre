@@ -57,7 +57,7 @@ export default function CardCaso({
       
       {testimonio && (
         <blockquote className="border-l-4 border-white/30 pl-4 italic text-accent">
-          "{testimonio}"
+          &quot;{testimonio}&quot;
         </blockquote>
       )}
     </div>
