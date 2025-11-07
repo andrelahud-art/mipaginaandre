@@ -1,0 +1,212 @@
+[
+  {
+    "titulo": "ChatGPT & Claude",
+    "categoria": "IA Generativa",
+    "descripcion": "Asistentes de IA para redacción, análisis, programación y automatización de tareas.",
+    "caracteristicas": [
+      "Generación de contenido y copy",
+      "Análisis de datos y reportes",
+      "Automatización de procesos",
+      "Programación asistida"
+    ],
+    "ventajas": "Acelera tu productividad 10x en tareas creativas y analíticas.",
+    "enlace": "https://chat.openai.com",
+    "icon": "🤖"
+  },
+  {
+    "titulo": "Notion",
+    "categoria": "Gestión",
+    "descripcion": "Workspace todo-en-uno para documentación, gestión de proyectos y bases de datos.",
+    "caracteristicas": [
+      "Wikis y documentación colaborativa",
+      "Bases de datos relacionales",
+      "Kanban, calendarios y roadmaps",
+      "Integración con +100 herramientas"
+    ],
+    "ventajas": "Centraliza toda tu información empresarial en un solo lugar.",
+    "enlace": "https://notion.so",
+    "icon": "📝"
+  },
+  {
+    "titulo": "Stripe",
+    "categoria": "Pagos",
+    "descripcion": "Plataforma de pagos online completa para e-commerce y suscripciones.",
+    "caracteristicas": [
+      "Procesamiento de tarjetas global",
+      "Suscripciones recurrentes",
+      "Facturación automática",
+      "API completa para developers"
+    ],
+    "ventajas": "Acepta pagos en minutos con seguridad de nivel bancario.",
+    "enlace": "https://stripe.com",
+    "icon": "💳"
+  },
+  {
+    "titulo": "Canva",
+    "categoria": "Diseño",
+    "descripcion": "Herramienta de diseño gráfico intuitiva para crear contenido visual profesional.",
+    "caracteristicas": [
+      "+1M plantillas pre-diseñadas",
+      "Editor drag-and-drop",
+      "Brand kit personalizado",
+      "Exportación en múltiples formatos"
+    ],
+    "ventajas": "Diseña como un profesional sin conocimientos técnicos.",
+    "enlace": "https://canva.com",
+    "icon": "🎨"
+  },
+  {
+    "titulo": "Google Analytics",
+    "categoria": "Analítica",
+    "descripcion": "Plataforma de análisis web para entender el comportamiento de tus usuarios.",
+    "caracteristicas": [
+      "Tracking de visitantes en tiempo real",
+      "Embudos de conversión",
+      "Segmentación de audiencias",
+      "Informes personalizados"
+    ],
+    "ventajas": "Toma decisiones basadas en datos reales de tu audiencia.",
+    "enlace": "https://analytics.google.com",
+    "icon": "📊"
+  },
+  {
+    "titulo": "Mailchimp",
+    "categoria": "Marketing",
+    "descripcion": "Plataforma de email marketing con automatizaciones y segmentación avanzada.",
+    "caracteristicas": [
+      "Campañas de email automatizadas",
+      "Segmentación de audiencias",
+      "A/B testing",
+      "Reportes de rendimiento"
+    ],
+    "ventajas": "Convierte suscriptores en clientes con comunicación personalizada.",
+    "enlace": "https://mailchimp.com",
+    "icon": "📧"
+  },
+  {
+    "titulo": "Zapier",
+    "categoria": "Automatización",
+    "descripcion": "Conecta tus aplicaciones favoritas y automatiza workflows sin código.",
+    "caracteristicas": [
+      "+6000 integraciones disponibles",
+      "Workflows multi-paso",
+      "Triggers y acciones personalizables",
+      "Ejecución en segundo plano"
+    ],
+    "ventajas": "Ahorra 10+ horas semanales automatizando tareas repetitivas.",
+    "enlace": "https://zapier.com",
+    "icon": "⚡"
+  },
+  {
+    "titulo": "Figma",
+    "categoria": "Diseño",
+    "descripcion": "Herramienta colaborativa de diseño UI/UX para productos digitales.",
+    "caracteristicas": [
+      "Diseño colaborativo en tiempo real",
+      "Prototipado interactivo",
+      "Sistema de componentes",
+      "Handoff para developers"
+    ],
+    "ventajas": "Diseña, prototipa y colabora en un solo espacio.",
+    "enlace": "https://figma.com",
+    "icon": "✨"
+  },
+  {
+    "titulo": "Calendly",
+    "categoria": "Productividad",
+    "descripcion": "Automatiza la programación de reuniones eliminando el ping-pong de emails.",
+    "caracteristicas": [
+      "Sincronización con calendarios",
+      "Links personalizados de agenda",
+      "Recordatorios automáticos",
+      "Integración con Zoom/Meet"
+    ],
+    "ventajas": "Reduce 80% del tiempo perdido coordinando reuniones.",
+    "enlace": "https://calendly.com",
+    "icon": "📅"
+  },
+  {
+    "titulo": "Airtable",
+    "categoria": "Gestión",
+    "descripcion": "Base de datos visual con interfaz de spreadsheet y poder de database.",
+    "caracteristicas": [
+      "Vistas múltiples (grid, kanban, calendar)",
+      "Automatizaciones integradas",
+      "Formularios personalizados",
+      "API y extensiones"
+    ],
+    "ventajas": "Gestiona operaciones complejas con la flexibilidad de Excel + poder de base de datos.",
+    "enlace": "https://airtable.com",
+    "icon": "🗂️"
+  },
+  {
+    "titulo": "Loom",
+    "categoria": "Comunicación",
+    "descripcion": "Grabación de pantalla instantánea para comunicación asíncrona efectiva.",
+    "caracteristicas": [
+      "Grabación de pantalla + cámara",
+      "Edición básica integrada",
+      "Compartir con link",
+      "Analytics de visualización"
+    ],
+    "ventajas": "Reemplaza reuniones innecesarias con videos concisos.",
+    "enlace": "https://loom.com",
+    "icon": "🎥"
+  },
+  {
+    "titulo": "Typeform",
+    "categoria": "Validación",
+    "descripcion": "Creador de formularios y encuestas con diseño conversacional.",
+    "caracteristicas": [
+      "Diseño conversacional one-question-at-a-time",
+      "Lógica condicional",
+      "Integraciones nativas",
+      "Analytics avanzado"
+    ],
+    "ventajas": "Obtén 40% más de respuestas que formularios tradicionales.",
+    "enlace": "https://typeform.com",
+    "icon": "📋"
+  },
+  {
+    "titulo": "Make (Integromat)",
+    "categoria": "Automatización",
+    "descripcion": "Plataforma de automatización visual más potente que Zapier para workflows complejos.",
+    "caracteristicas": [
+      "Editor visual de flujos",
+      "Operaciones avanzadas (loops, filtros)",
+      "Ejecución condicional",
+      "+1500 integraciones"
+    ],
+    "ventajas": "Construye automatizaciones complejas con control total del flujo.",
+    "enlace": "https://make.com",
+    "icon": "🔧"
+  },
+  {
+    "titulo": "HubSpot CRM",
+    "categoria": "CRM",
+    "descripcion": "CRM gratuito con herramientas de ventas, marketing y servicio al cliente.",
+    "caracteristicas": [
+      "Gestión de contactos ilimitados",
+      "Pipeline de ventas visual",
+      "Email tracking",
+      "Reportes de actividad"
+    ],
+    "ventajas": "CRM completo y gratis para siempre, escala cuando creces.",
+    "enlace": "https://hubspot.com",
+    "icon": "🎯"
+  },
+  {
+    "titulo": "Vercel",
+    "categoria": "Desarrollo",
+    "descripcion": "Plataforma de deployment para frontend optimizada para Next.js y React.",
+    "caracteristicas": [
+      "Deploy automático desde Git",
+      "Edge Network global",
+      "Preview deployments",
+      "Analytics integrado"
+    ],
+    "ventajas": "De código a producción en segundos con performance óptimo.",
+    "enlace": "https://vercel.com",
+    "icon": "🚀"
+  }
+]

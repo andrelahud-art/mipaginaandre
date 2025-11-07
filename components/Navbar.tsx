@@ -8,12 +8,13 @@ import clsx from "clsx";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const dark = pathname === "/" || pathname.startsWith("/servicios");
+  const dark = pathname === "/" || pathname.startsWith("/servicios") || pathname.startsWith("/herramientas");
 
   const links = [
     { href: "/", label: "Inicio" },
     { href: "/sobre-mi", label: "Sobre Mí" },
     { href: "/servicios", label: "Servicios" },
+    { href: "/herramientas", label: "Herramientas" },
     { href: "/blog", label: "Blog" },
     { href: "/contacto", label: "Hablemos" },
   ];
