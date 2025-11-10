@@ -3,7 +3,6 @@ import LogoStrip from "@/components/LogoStrip";
 import CTA from "@/components/CTA";
 import { AnimatedElement } from "@/components/AnimatedElement";
 import MiHistoria from "@/components/MiHistoria";
-import RocketAnimation from "@/components/RocketAnimation";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import NeonTitle from "@/components/NeonTitle";
 import HomeScrollFX from "@/components/HomeScrollFX";
@@ -14,8 +13,6 @@ export default function HomePage() {
       {/* Live starfield background (GPU) */}
       <StarfieldBackground accent="#60A5FA" />
       <HomeScrollFX />
-      {/* Left-side rocket with subtle tilt */}
-      <RocketAnimation />
 
       {/* HERO */}
       <header id="hero" className="relative z-10 text-center py-32 section-padding">
