@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Sparkles, Target, Zap, BookOpen, Lightbulb, Rocket, Brain, TrendingUp, Users, Award } from 'lucide-react';
+import { Sparkles, Rocket, Award } from 'lucide-react';
 
 export default function MiHistoria() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -35,65 +35,6 @@ export default function MiHistoria() {
 
     return () => observer.disconnect();
   }, []);
-
-  const beliefs = [
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Estrategia antes que herramientas",
-      description: "La tecnología sin rumbo es ruido. Primero claridad, luego ejecución."
-    },
-    {
-      icon: <Brain className="w-6 h-6" />,
-      title: "IA como potenciador, no como reemplazo",
-      description: "Uso la inteligencia artificial para amplificar capacidades humanas, no para sustituir criterio."
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Resultados sobre procesos",
-      description: "Mido por valor generado, no por horas invertidas."
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Velocidad con fundamento",
-      description: "Actuar rápido con información precisa. Sin parálisis por análisis ni improvisación ciega."
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Transferencia de conocimiento",
-      description: "No creo dependencia. Empodero equipos para que continúen evolucionando sin mí."
-    }
-  ];
-
-  const specialties = [
-    {
-      icon: <Lightbulb className="w-8 h-8" />,
-      title: "Estrategia de Negocio",
-      items: ["Modelos de negocio", "Posicionamiento competitivo", "Roadmaps ejecutables", "KPIs y métricas de valor"]
-    },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "IA Aplicada",
-      items: ["Automatización inteligente", "Personalización de experiencias", "Análisis predictivo", "Implementación práctica"]
-    },
-    {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Consultoría de Transformación",
-      items: ["Diagnóstico integral", "Implementación de cambios", "Gestión de proyectos tech", "Optimización de procesos"]
-    },
-    {
-      icon: <BookOpen className="w-8 h-8" />,
-      title: "Formación Ejecutiva",
-      items: ["Programas personalizados", "Capacitación de equipos", "Talleres de IA práctica", "Mentoría estratégica"]
-    }
-  ];
-
-  const skills = [
-    "Estrategia de Negocio", "Business Model Canvas", "OKRs", "Design Thinking",
-    "ChatGPT & IA Generativa", "Automatización con Make/Zapier", "CRMs Inteligentes",
-    "Google Analytics 4", "Python", "SQL", "Power BI", "Tableau",
-    "E-commerce", "Shopify", "WooCommerce", "Marketing Digital",
-    "SEO/SEM", "Growth Marketing", "Formación Corporativa", "Facilitación"
-  ];
 
 
   return (
@@ -157,112 +98,9 @@ export default function MiHistoria() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-300 leading-relaxed"
           >
-            Pongo la estrategia y la inteligencia artificial al servicio del negocio. 
-            Sin tecnología vacía, sin consultoría de PowerPoint, sin promesas abstractas. 
-            <span className="text-white font-semibold"> Solo herramientas prácticas que generan resultados medibles.</span>
+            ¿Quién soy? Un consultor que alinea estrategia, procesos y tecnología para generar crecimiento sostenible.
+            <span className="text-white font-semibold"> Soy André Lahud.</span>
           </motion.p>
-        </motion.div>
-
-        {/* Non-Negotiable Beliefs */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-32"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Mis Principios <span className="text-blue-400">No Negociables</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {beliefs.map((belief, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="bg-blue-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-4 text-blue-400">
-                  {belief.icon}
-                </div>
-                <h4 className="text-lg font-bold mb-2">{belief.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{belief.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Specialties Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-32"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Mis <span className="text-purple-400">Especialidades</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {specialties.map((specialty, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/30 transition-all duration-300"
-              >
-                <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 w-16 h-16 rounded-xl flex items-center justify-center mb-4 text-blue-400">
-                  {specialty.icon}
-                </div>
-                <h4 className="text-lg font-bold mb-4">{specialty.title}</h4>
-                <ul className="space-y-2">
-                  {specialty.items.map((item, idx) => (
-                    <li key={idx} className="text-sm text-gray-400 flex items-start gap-2">
-                      <span className="text-blue-400 mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Skills Cloud */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-32"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Herramientas y <span className="text-blue-400">Habilidades</span>
-          </h3>
-          
-          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
-            {skills.map((skill, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.03, duration: 0.4 }}
-                whileHover={{ scale: 1.1, y: -3 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 hover:border-white/40 transition-all duration-300 cursor-default"
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
         </motion.div>
 
         {/* Value Proposition - Final CTA */}
