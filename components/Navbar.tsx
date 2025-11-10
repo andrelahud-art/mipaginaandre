@@ -12,11 +12,11 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: "Inicio" },
-    { href: "/sobre-mi", label: "Sobre Mí" },
-    { href: "/servicios", label: "Servicios" },
+    { href: "/servicios", label: "¿El cómo?" },
     { href: "/herramientas", label: "Herramientas" },
     { href: "/blog", label: "Blog" },
     { href: "/contacto", label: "Hablemos" },
+    { href: "/sobre-mi", label: "Sobre Mí" },
   ];
 
   return (
