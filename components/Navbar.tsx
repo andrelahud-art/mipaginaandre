@@ -13,10 +13,9 @@ export default function Navbar() {
   const links = [
     { href: "/", label: "Inicio" },
     { href: "/servicios", label: "¿El cómo?" },
-    { href: "/herramientas", label: "Herramientas" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contacto", label: "Hablemos" },
     { href: "/sobre-mi", label: "Sobre Mí" },
+    { href: "/contacto", label: "Hablemos", highlighted: true },
+    { href: "/herramientas", label: "Herramientas" },
   ];
 
   return (
@@ -48,8 +47,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "transition-colors",
-                  dark
+                  "transition-all duration-300",
+                  link.highlighted
+                    ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-yellow-500/50 hover:scale-105"
+                    : dark
                     ? pathname === link.href
                       ? "text-blue-300 font-semibold"
                       : "text-gray-200 hover:text-blue-300"
@@ -101,8 +102,10 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={clsx(
-                  "block py-3 transition-colors",
-                  dark
+                  "block py-3 transition-all duration-300",
+                  link.highlighted
+                    ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-6 py-2.5 rounded-full text-center my-2 mx-4"
+                    : dark
                     ? pathname === link.href
                       ? "text-blue-300 font-semibold"
                       : "text-gray-200 hover:text-blue-300"
