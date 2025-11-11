@@ -148,9 +148,9 @@ export default function BlogPostDetail({ post, comments }: BlogPostProps) {
   const renderContent = () => {
     let headingIndex = 0;
     const lines = post.content.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: React.ReactElement[] = [];
     let inList = false;
-    let listItems: JSX.Element[] = [];
+    let listItems: React.ReactElement[] = [];
 
     const flushList = (currentIndex: number) => {
       if (inList && listItems.length > 0) {
