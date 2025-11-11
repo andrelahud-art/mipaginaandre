@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Check, Zap, TrendingUp, Rocket, Target } from "lucide-react";
+import FreeCoursePortal from "@/components/emprendedor/FreeCoursePortal";
 
 const courses = [
   {
@@ -235,6 +236,8 @@ export default function EmprendedorPage() {
               </div>
             </div>
           </div>
+
+          <FreeCoursePortal />
 
           {/* FAQ Quick */}
           <div className="mt-20 max-w-3xl mx-auto">
