@@ -8,12 +8,13 @@ import clsx from "clsx";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const dark = pathname === "/" || pathname.startsWith("/servicios") || pathname.startsWith("/herramientas");
+  const dark = pathname === "/" || pathname.startsWith("/servicios") || pathname.startsWith("/herramientas") || pathname.startsWith("/emprendedor");
 
   const links = [
     { href: "/", label: "Inicio" },
     { href: "/servicios", label: "¿El cómo?" },
     { href: "/sobre-mi", label: "Sobre Mí" },
+    { href: "/emprendedor", label: "¿Eres Emprendedor?", featured: true },
     { href: "/contacto", label: "Hablemos", highlighted: true },
     { href: "/herramientas", label: "Herramientas" },
   ];
@@ -50,6 +51,8 @@ export default function Navbar() {
                   "transition-all duration-300",
                   link.highlighted
                     ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-yellow-500/50 hover:scale-105"
+                    : link.featured
+                    ? "bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-orange-500/50 hover:scale-105 animate-pulse"
                     : dark
                     ? pathname === link.href
                       ? "text-blue-300 font-semibold"
@@ -105,6 +108,8 @@ export default function Navbar() {
                   "block py-3 transition-all duration-300",
                   link.highlighted
                     ? "bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-6 py-2.5 rounded-full text-center my-2 mx-4"
+                    : link.featured
+                    ? "bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold px-6 py-2.5 rounded-full text-center my-2 mx-4"
                     : dark
                     ? pathname === link.href
                       ? "text-blue-300 font-semibold"

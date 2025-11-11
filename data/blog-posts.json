@@ -55,7 +55,7 @@
     "likes": 0,
     "views": 0,
     "commentsCount": 0,
-    "image": "/blog/business-model-canvas-ia.jpg"
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop"
   },
   {
     "id": "ia-generativa-empresas-implementacion-real",
@@ -73,7 +73,7 @@
     "likes": 0,
     "views": 0,
     "commentsCount": 0,
-    "image": "/blog/ia-generativa-empresas.jpg"
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop"
   },
   {
     "id": "marketing-predictivo-ia-casos-uso",
@@ -92,7 +92,7 @@
     "likes": 0,
     "views": 0,
     "commentsCount": 0,
-    "image": "/blog/marketing-predictivo-ia.jpg"
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop"
   },
   {
     "id": "sistemas-inteligentes-pymes-procesos",
@@ -111,7 +111,7 @@
     "likes": 0,
     "views": 0,
     "commentsCount": 0,
-    "image": "/blog/sistemas-inteligentes-pymes.jpg"
+    "image": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&h=600&fit=crop"
   },
   {
     "id": "startup-scaleup-framework-tecnologia",
@@ -130,6 +130,6 @@
     "likes": 0,
     "views": 0,
     "commentsCount": 0,
-    "image": "/blog/startup-scaleup-tecnologia.jpg"
+    "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop"
   }
 ]

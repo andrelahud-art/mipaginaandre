@@ -147,78 +147,169 @@ export default function BlogPostDetail({ post, comments }: BlogPostProps) {
   // Render content with proper formatting
   const renderContent = () => {
     let headingIndex = 0;
-    return post.content.split('\n').map((paragraph, index) => {
+    const lines = post.content.split('\n');
+    const elements: JSX.Element[] = [];
+    let inList = false;
+    let listItems: JSX.Element[] = [];
+
+    const flushList = (currentIndex: number) => {
+      if (inList && listItems.length > 0) {
+        elements.push(
+          <ul key={`list-${currentIndex}`} className="my-6 space-y-3">
+            {listItems}
+          </ul>
+        );
+        listItems = [];
+        inList = false;
+      }
+    };
+
+    lines.forEach((paragraph, index) => {
       // H2 headings
       if (paragraph.startsWith('## ')) {
+        flushList(index);
         const headingId = `heading-${headingIndex++}`;
-        return (
+        elements.push(
           <h2
             key={index}
             id={headingId}
-            className="text-3xl md:text-4xl font-bold mt-16 mb-6 text-gray-900 scroll-mt-24 border-l-4 border-blue-600 pl-6 bg-gradient-to-r from-blue-50 to-transparent py-3"
+            className="text-3xl md:text-4xl font-bold mt-16 mb-6 text-gray-900 scroll-mt-24 border-l-4 border-blue-600 pl-6 bg-gradient-to-r from-blue-50 to-transparent py-4 rounded-r-lg"
           >
             {paragraph.slice(3)}
           </h2>
         );
+        return;
       }
 
       // H3 headings
       if (paragraph.startsWith('### ')) {
+        flushList(index);
         const headingId = `heading-${headingIndex++}`;
-        return (
+        elements.push(
           <h3
             key={index}
             id={headingId}
             className="text-2xl md:text-3xl font-bold mt-12 mb-5 text-gray-800 scroll-mt-24 flex items-center gap-3"
           >
-            <span className="text-blue-600">▸</span>
+            <span className="text-blue-600 text-2xl">▸</span>
             {paragraph.slice(4)}
           </h3>
         );
+        return;
       }
 
-      // Bold paragraphs
-      if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-        return (
-          <p key={index} className="font-bold text-xl mb-6 text-gray-900 bg-yellow-50 border-l-4 border-yellow-400 pl-6 py-4 my-8">
-            {paragraph.slice(2, -2)}
-          </p>
+      // H4 headings (####)
+      if (paragraph.startsWith('#### ')) {
+        flushList(index);
+        elements.push(
+          <h4
+            key={index}
+            className="text-xl md:text-2xl font-bold mt-8 mb-4 text-gray-700"
+          >
+            {paragraph.slice(5)}
+          </h4>
         );
+        return;
       }
 
-      // Callout boxes (lines starting with ">")
-      if (paragraph.startsWith('> ')) {
-        return (
-          <div key={index} className="my-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-r-xl">
-            <p className="text-lg text-gray-800 italic leading-relaxed">
-              💡 {paragraph.slice(2)}
+      // Bold paragraphs (important callouts)
+      if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+        flushList(index);
+        elements.push(
+          <div key={index} className="my-8 p-6 bg-gradient-to-r from-yellow-50 to-yellow-100 border-l-4 border-yellow-500 rounded-r-xl shadow-md">
+            <p className="font-bold text-xl text-gray-900 leading-relaxed">
+              ⚠️ {paragraph.slice(2, -2)}
             </p>
           </div>
         );
+        return;
+      }
+
+      // Blockquotes (lines starting with ">")
+      if (paragraph.startsWith('> ')) {
+        flushList(index);
+        elements.push(
+          <div key={index} className="my-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-r-xl shadow-lg">
+            <p className="text-lg text-gray-800 italic leading-relaxed flex items-start gap-3">
+              <span className="text-2xl">💡</span>
+              <span>{paragraph.slice(2)}</span>
+            </p>
+          </div>
+        );
+        return;
+      }
+
+      // Code blocks (lines starting with ```)
+      if (paragraph.startsWith('```')) {
+        flushList(index);
+        elements.push(
+          <div key={index} className="my-8 p-6 bg-gray-900 rounded-xl shadow-xl">
+            <pre className="text-sm text-green-400 font-mono overflow-x-auto">
+              <code>{paragraph.slice(3)}</code>
+            </pre>
+          </div>
+        );
+        return;
+      }
+
+      // Special markers for emphasis (starts with ❌ or ✅)
+      if (paragraph.startsWith('❌ ') || paragraph.startsWith('✅ ')) {
+        flushList(index);
+        const isError = paragraph.startsWith('❌');
+        elements.push(
+          <div key={index} className={`my-4 p-4 rounded-lg border-2 ${isError ? 'bg-red-50 border-red-300' : 'bg-green-50 border-green-300'}`}>
+            <p className="text-base text-gray-800 font-medium leading-relaxed">
+              {paragraph}
+            </p>
+          </div>
+        );
+        return;
       }
 
       // List items
-      if (paragraph.startsWith('- ')) {
-        return (
-          <li key={index} className="mb-3 text-lg text-gray-700 leading-relaxed flex items-start gap-3">
-            <span className="text-blue-600 font-bold mt-1">•</span>
+      if (paragraph.startsWith('- ') || paragraph.startsWith('* ')) {
+        inList = true;
+        listItems.push(
+          <li key={index} className="flex items-start gap-3 text-lg text-gray-700 leading-relaxed">
+            <span className="text-blue-600 font-bold mt-1 flex-shrink-0">•</span>
             <span>{paragraph.slice(2)}</span>
           </li>
         );
+        return;
       }
 
       // Empty lines
       if (paragraph.trim() === '') {
-        return <div key={index} className="h-4" />;
+        flushList(index);
+        elements.push(<div key={index} className="h-4" />);
+        return;
       }
 
       // Regular paragraphs
-      return (
-        <p key={index} className="mb-6 text-lg text-gray-700 leading-relaxed">
-          {paragraph}
-        </p>
-      );
+      flushList(index);
+
+      // Check if it contains inline bold **text**
+      const boldPattern = /\*\*(.+?)\*\*/g;
+      if (boldPattern.test(paragraph)) {
+        const parts = paragraph.split(boldPattern);
+        elements.push(
+          <p key={index} className="mb-6 text-lg text-gray-700 leading-relaxed">
+            {parts.map((part, i) =>
+              i % 2 === 0 ? part : <strong key={i} className="font-bold text-gray-900">{part}</strong>
+            )}
+          </p>
+        );
+      } else {
+        elements.push(
+          <p key={index} className="mb-6 text-lg text-gray-700 leading-relaxed">
+            {paragraph}
+          </p>
+        );
+      }
     });
+
+    flushList(lines.length);
+    return elements;
   };
 
   return (
@@ -444,16 +535,36 @@ export default function BlogPostDetail({ post, comments }: BlogPostProps) {
               </section>
 
               {/* CTA */}
-              <div className="mt-16 pt-12 border-t-2 border-gray-200 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-white shadow-2xl">
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  ¿Te gustó este artículo?
-                </h3>
-                <p className="text-xl mb-8 text-blue-100">
-                  Suscríbete para recibir más contenido como este directo a tu email.
-                </p>
-                <Link href="/contacto" className="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl">
-                  Suscribirme al newsletter
-                </Link>
+              <div className="mt-16 pt-12 border-t-2 border-gray-200">
+                <div className="bg-gradient-to-br from-[#1e3a5f] via-[#1a4d5c] to-[#0f5257] rounded-3xl p-12 text-white shadow-2xl">
+                  <div className="text-center max-w-3xl mx-auto">
+                    <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                      ¿Quieres aplicar esto en tu empresa?
+                    </h3>
+                    <p className="text-xl mb-8 text-gray-200 leading-relaxed">
+                      Agenda una <span className="text-yellow-400 font-bold">cita estratégica</span> y diseñamos tu plan personalizado.
+                      15 minutos que pueden transformar tu negocio.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Link
+                        href="/contacto"
+                        className="group bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-yellow-500/50 transition-all hover:scale-105 flex items-center gap-3"
+                      >
+                        <span className="text-xl">📅</span>
+                        <span>Agenda tu diagnóstico</span>
+                      </Link>
+                      <Link
+                        href="/blog"
+                        className="text-white border-2 border-white/30 font-medium px-8 py-4 rounded-xl hover:bg-white/10 transition-all"
+                      >
+                        Ver más artículos
+                      </Link>
+                    </div>
+                    <p className="mt-6 text-sm text-gray-300">
+                      🎯 Sin compromiso · ✅ Diagnóstico inicial gratis · 💡 Recomendaciones accionables
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
