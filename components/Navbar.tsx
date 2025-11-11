@@ -8,6 +8,9 @@ import clsx from "clsx";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  if (pathname?.startsWith("/emprendedor")) {
+    return null;
+  }
   const dark = pathname === "/" || pathname.startsWith("/servicios") || pathname.startsWith("/herramientas") || pathname.startsWith("/emprendedor");
 
   const links = [
@@ -47,6 +50,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                target={link.href.startsWith("/emprendedor") ? "_blank" : undefined}
+                rel={link.href.startsWith("/emprendedor") ? "noopener noreferrer" : undefined}
                 className={clsx(
                   "transition-all duration-300",
                   link.highlighted
@@ -103,6 +108,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                target={link.href.startsWith("/emprendedor") ? "_blank" : undefined}
+                rel={link.href.startsWith("/emprendedor") ? "noopener noreferrer" : undefined}
                 onClick={() => setIsOpen(false)}
                 className={clsx(
                   "block py-3 transition-all duration-300",
