@@ -17,9 +17,8 @@ export default function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/servicios", label: "¿El cómo?" },
     { href: "/sobre-mi", label: "Sobre Mí" },
-    { href: "/emprendedor", label: "¿Eres Emprendedor?", featured: true },
     { href: "/contacto", label: "Hablemos", highlighted: true },
-    { href: "/herramientas", label: "Herramientas" },
+    { href: "/emprendedor", label: "¿Eres Emprendedor?", featured: true },
   ];
 
   return (
