@@ -4,6 +4,7 @@ import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll"; // Importar SmoothScroll
+import SessionProvider from "@/components/providers/SessionProvider";
 import "./globals.css";
 
 // Fuentes "Apple": Inter para el cuerpo, Poppins para cabeceras
@@ -34,16 +35,18 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
       {/* Cambiamos a modo claro (bg-white text-gray-900)
-        y aplicamos la fuente 'Inter' (font-sans) por defecto 
+        y aplicamos la fuente 'Inter' (font-sans) por defecto
       */}
       <body className="font-sans bg-white text-gray-900 antialiased">
-        {/* Envolvemos el contenido con SmoothScroll */}
-        <SmoothScroll>
-          <Navbar />
-          {/* <main> ya tiene pt-20 de globals.css, lo cual es correcto */}
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+        <SessionProvider>
+          {/* Envolvemos el contenido con SmoothScroll */}
+          <SmoothScroll>
+            <Navbar />
+            {/* <main> ya tiene pt-20 de globals.css, lo cual es correcto */}
+            <main>{children}</main>
+            <Footer />
+          </SmoothScroll>
+        </SessionProvider>
         
         {/* WhatsApp Floating Button */}
         <a 

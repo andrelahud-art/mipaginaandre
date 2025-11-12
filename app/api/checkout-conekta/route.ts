@@ -1,13 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
 import conekta from "@/lib/conekta";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(req: NextRequest) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { courseSlug, customerInfo } = await req.json();
 
-    // Validar datos del cliente
-    if (!customerInfo?.name || !customerInfo?.email) {
+    // Usar datos de la sesión
+    const name = customerInfo?.name || session.user.name;
+    const email = customerInfo?.email || session.user.email;
+    const userId = session.user.id;
+
+    if (!name || !email) {
       return NextResponse.json(
         { error: "Nombre y email son requeridos" },
         { status: 400 }
@@ -39,9 +50,9 @@ export async function POST(req: NextRequest) {
     const orderData = {
       currency: course.currency.toLowerCase(), // "mxn"
       customer_info: {
-        name: customerInfo.name,
-        email: customerInfo.email,
-        phone: customerInfo.phone || "+5200000000"
+        name: name,
+        email: email,
+        phone: customerInfo?.phone || "+5200000000"
       },
       line_items: [
         {
@@ -67,7 +78,8 @@ export async function POST(req: NextRequest) {
       metadata: {
         courseId: course.id,
         courseSlug: course.slug,
-        customerEmail: customerInfo.email
+        customerEmail: email,
+        userId: userId
       }
     };
 
@@ -77,7 +89,7 @@ export async function POST(req: NextRequest) {
     // Guardar orden en base de datos
     await prisma.order.create({
       data: {
-        userId: customerInfo.userId || "guest", // Si no hay usuario autenticado
+        userId: userId,
         courseId: course.id,
         conektaOrderId: conektaOrder.id,
         status: "REQUIRES_PAYMENT",

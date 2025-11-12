@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 
 interface ConektaCheckoutButtonProps {
@@ -16,15 +18,19 @@ export default function ConektaCheckoutButton({
   price,
   priceCents
 }: ConektaCheckoutButtonProps) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: ""
-  });
+  const handleClick = () => {
+    if (status === "unauthenticated") {
+      router.push(`/login?callbackUrl=/emprendedor/${courseSlug}`);
+      return;
+    }
+    setShowModal(true);
+  };
 
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +45,11 @@ export default function ConektaCheckoutButton({
         },
         body: JSON.stringify({
           courseSlug,
-          customerInfo: formData
+          customerInfo: {
+            name: session?.user?.name,
+            email: session?.user?.email,
+            userId: session?.user?.id
+          }
         })
       });
 
@@ -63,14 +73,15 @@ export default function ConektaCheckoutButton({
   return (
     <>
       <button
-        onClick={() => setShowModal(true)}
-        className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105"
+        onClick={handleClick}
+        disabled={status === "loading"}
+        className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Comprar por {price}
+        {status === "loading" ? "Cargando..." : `Comprar por ${price}`}
       </button>
 
       {/* Modal */}
-      {showModal && (
+      {showModal && session && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-white/10 rounded-2xl max-w-md w-full p-8 relative">
             {/* Botón cerrar */}
@@ -93,46 +104,12 @@ export default function ConektaCheckoutButton({
             <form onSubmit={handleCheckout} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  Nombre completo *
+                  Comprador
                 </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="Tu nombre"
-                  disabled={loading}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="tu@email.com"
-                  disabled={loading}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Teléfono (opcional)
-                </label>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="+52 123 456 7890"
-                  disabled={loading}
-                />
+                <div className="px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white/80">
+                  <p className="font-medium">{session.user.name}</p>
+                  <p className="text-sm text-white/60">{session.user.email}</p>
+                </div>
               </div>
 
               {error && (
