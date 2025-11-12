@@ -280,6 +280,7 @@ model Product {
 
   stripePriceId  String? @unique
   paypalPlanId   String?
+  conektaPlanId  String? // ID del plan en Conekta (opcional)
 
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -297,6 +298,7 @@ model Order {
 
   stripePaymentIntentId  String?     @unique
   paypalOrderId          String?     @unique
+  conektaOrderId         String?     @unique
   status                 OrderStatus @default(REQUIRES_PAYMENT)
   amountCents            Int
   currency               String      @default("MXN")
@@ -378,7 +380,7 @@ model Investor {
 
 model Webhook {
   id        String   @id @default(cuid())
-  source    String   // "stripe", "paypal", "calendly"
+  source    String   // "stripe", "paypal", "conekta", "calendly"
   eventType String
   payload   Json
   processed Boolean  @default(false)

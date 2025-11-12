@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Check, Play, Download, Lock, Trophy, Users, Clock, Star } from "lucide-react";
+import ConektaCheckoutButton from "@/components/checkout/ConektaCheckoutButton";
 
 // Data de cursos (después moverás esto a BD)
 const coursesData: Record<string, any> = {
@@ -326,14 +327,20 @@ export default function CourseDetailPage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 {course.priceCents === 0 ? (
-                  <button className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
+                  <Link
+                    href="/emprendedor/despierta#curso-gratuito"
+                    className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105 text-center"
+                  >
                     Empezar gratis →
-                  </button>
+                  </Link>
                 ) : (
                   <>
-                    <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all hover:scale-105">
-                      Comprar por {course.price}
-                    </button>
+                    <ConektaCheckoutButton
+                      courseSlug={course.slug}
+                      courseTitle={course.title}
+                      price={course.price}
+                      priceCents={course.priceCents}
+                    />
                     <Link
                       href="/emprendedor/despierta"
                       className="px-8 py-4 border-2 border-white/30 rounded-xl font-medium hover:bg-white/10 transition-all text-center"
