@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
     }
 
     const totalLessons = lesson.module.course.modules.reduce(
-      (sum, m) => sum + m.lessons.length,
+      (sum: number, m) => sum + m.lessons.length,
       0
     );
 
@@ -183,7 +183,7 @@ export async function GET(req: NextRequest) {
     }
 
     const totalLessons = course.modules.reduce(
-      (sum, m) => sum + m.lessons.length,
+      (sum: number, m) => sum + m.lessons.length,
       0
     );
 
